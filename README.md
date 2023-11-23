@@ -8,6 +8,13 @@ npm install react-loader-spinner
 
 ```
 Ctrl + Space - вставити автоматично посилання на файл (шлях)
+
+rafce - створення сторінки
+
+```
+
+```jsx
+npm install react-router-dom
 ```
 
 # Книга контактів
