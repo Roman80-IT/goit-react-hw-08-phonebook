@@ -15,6 +15,10 @@ rafce - створення сторінки
 
 ```jsx
 npm install react-router-dom
+
+npm install redux-persist
+
+npm install react-hook-form notiflix
 ```
 
 # Книга контактів

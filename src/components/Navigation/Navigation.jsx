@@ -1,8 +1,9 @@
 import { useSelector } from 'react-redux';
 import { StyledNavLink } from './Navigation.styled';
+import { selectAuthAuthenticated } from 'redux/auth.selectors';
 
 export const Navigation = () => {
-  const authenticated = useSelector();
+  const authenticated = useSelector(selectAuthAuthenticated);
 
   return (
     <div>
