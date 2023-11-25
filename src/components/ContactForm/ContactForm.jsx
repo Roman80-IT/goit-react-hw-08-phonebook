@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addContact, fetchContacts } from 'redux/contactsReducer';
+import { addContact } from 'redux/contactsReducer';
 import { selectContacts } from 'redux/contacts.selectors';
 
 import { useForm } from 'react-hook-form';
@@ -26,9 +26,9 @@ export const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchContacts());
+  // }, [dispatch]);
 
   const onSubmit = values => {
     const newContact = {
