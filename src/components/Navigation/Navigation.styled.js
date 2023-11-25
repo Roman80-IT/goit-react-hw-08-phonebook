@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const NavContainer = styled.div`
-  max-width: 720px;
+  // max-width: 720px;
   margin: 0 auto;
 `;
 
@@ -13,39 +13,68 @@ export const Navi = styled.nav`
   padding: 14px 24px;
 `;
 
-export const StyledNavLink = styled(NavLink)`
-  padding: 12px;
-  color: white;
-  border: 1px solid white;
-  border-radius: 12px;
-
+export const NavBox = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
   text-decoration: none;
+`;
+
+export const UserNavBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+`;
+
+export const TextColor = styled.span`
+  font-weight: bold;
+  color: beige;
+`;
+
+export const StyledNavLink = styled(NavLink)`
+  padding: 10px 12px;
+  color: white;
+  text-decoration: none;
+
+  border: 1px solid white;
+  border-radius: 10px;
+
   transition: all 300ms ease-out;
+
   cursor: pointer;
 
   &.active {
+    // color: white;
+
     border: 1px solid white;
-    background-color: navy;
-    color: white;
-    border-radius: 12px;
+    background-color: #007fff;
+
+    // border-radius: 10px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   }
 
   :hover {
-    border: 1px solid white;
+    // color: white;
     background-color: royalblue;
-    color: white;
-    border-radius: 12px;
+
+    // border: 1px solid white;
+    // border-radius: 10px;
+
     transform: scale(1.03);
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
   }
 
   :focus {
-    outline: none;
-    border: 1px solid white;
+    // color: white;
     background-color: royalblue;
-    color: white;
-    border-radius: 12px;
+
+    outline: none;
+    // border: 1px solid white;
+    // border-radius: 10px;
+
+    transform: scale(1.03);
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   }
 `;

@@ -3,7 +3,14 @@ import { useSelector } from 'react-redux';
 import { selectAuthAuthenticated } from 'redux/auth.selectors';
 
 import UserMenu from 'components/UserMenu/UserMenu';
-import { NavContainer, Navi, StyledNavLink } from './Navigation.styled';
+import {
+  NavBox,
+  NavContainer,
+  Navi,
+  StyledNavLink,
+  TextColor,
+  UserNavBox,
+} from './Navigation.styled';
 
 export const Navigation = () => {
   const authenticated = useSelector(selectAuthAuthenticated);
@@ -14,23 +21,25 @@ export const Navigation = () => {
         <Navi>
           {authenticated ? (
             <>
-              <div>
-                <StyledNavLink to="/">H O M E</StyledNavLink>
+              <NavBox>
+                <StyledNavLink to="/">
+                  <TextColor>H O M E</TextColor>
+                </StyledNavLink>
                 <StyledNavLink to="/contacts">C O N T A C T S</StyledNavLink>
-              </div>
+              </NavBox>
               <UserMenu />
             </>
           ) : (
             <>
-              <div>
+              <NavBox>
                 <StyledNavLink to="/">
-                  <span>H O M E</span>
+                  <TextColor>H O M E</TextColor>
                 </StyledNavLink>
-              </div>
-              <div>
+              </NavBox>
+              <UserNavBox>
                 <StyledNavLink to="/register">R E G I S T E R</StyledNavLink>
                 <StyledNavLink to="/login">L O G&nbsp;&nbsp;I N</StyledNavLink>
-              </div>
+              </UserNavBox>
             </>
           )}
         </Navi>
