@@ -3,8 +3,8 @@ import { setFilter } from 'redux/filterReducer';
 import { getFilter } from 'redux/contacts.selectors';
 
 import { FormInput } from 'pages/LoginPage/LoginPage.styled';
-import { Form } from 'components/ContactForm/ContactForm.styled';
-import { Title } from 'pages/ContactsPage/ContactsPage.styled';
+// import { Form } from 'components/ContactForm/ContactForm.styled';
+import { Form, Title } from './Filter.styled';
 // import { selectContactsFilterTerm } from 'redux/selectors';
 
 export const Filter = () => {

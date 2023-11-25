@@ -69,16 +69,16 @@ export const Contact = ({ id, name, number }) => {
 //   dispatch(deleteContact(contactId));
 // };
 
-/* <ListItem key={contact.id}>
-  <h4>{contact.name}</h4>
-  <NumberContainer>
-    <NumberFont>{contact.number}</NumberFont>
-    <DeleteBtn onClick={() => onDeleteContact(contact.id)}>
-      <FaTimes size="24" />
-      {/* <MdOutlineRemoveCircleOutline
-                    className="bold-icon"
-                    size="30"
-                  /> */
+//  <ListItem key={contact.id}>
+//   <h4>{contact.name}</h4>
+//   <NumberContainer>
+//     <NumberFont>{contact.number}</NumberFont>
+//     <DeleteBtn onClick={() => onDeleteContact(contact.id)}>
+//       <FaTimes size="24" />
+//       {/* <MdOutlineRemoveCircleOutline
+//                     className="bold-icon"
+//                     size="30"
+//       /> */}
 //     </DeleteBtn>
 //   </NumberContainer>
 // </ListItem>;

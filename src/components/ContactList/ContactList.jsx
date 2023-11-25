@@ -8,18 +8,14 @@ import {
 import { fetchContacts } from 'redux/contactsReducer';
 
 import { Loader } from 'components/Loader/Loader';
-// import { Contact } from 'components/Contact/Contact';
+import { Contact } from 'components/Contact/Contact';
 // import ErrorMessage from 'components/ErrorMessage';
+
 // import { FaTimes } from 'react-icons/fa';
 // import { MdOutlineRemoveCircleOutline } from 'react-icons/md';
-import {
-  // DeleteBtn,
-  ListContainer,
-  // ListItem,
-  // NumberContainer,
-  // NumberFont,
-} from './ContactList.styled';
-import { Contact } from 'components/Contact/Contact';
+import { ListContainer, Title } from './ContactList.styled';
+import { Filter } from 'components/Filter/Filter';
+import Empty from './Empty';
 
 const getFilteredContacts = (contacts, filter) => {
   return contacts?.filter(contact =>
@@ -38,10 +34,6 @@ export const ContactList = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  // const onDeleteContact = contactId => {
-  //   dispatch(deleteContact(contactId));
-  // };
-
   // export const ContactList = () => {
   //   const dispatch = useDispatch();
 
@@ -49,12 +41,6 @@ export const ContactList = () => {
   //   const isLoading = useSelector(selectContactsIsLoading);
   //   const error = useSelector(selectContactsError);
   //   const filterTerm = useSelector(selectContactsFilterTerm);
-
-  //! Отримаємо всі контакти з АПІ
-  // useEffect(() => {
-  //   dispatch(fetchContacts());
-  // }, [dispatch]);
-  // // console.log('contacts in ContactList: ', contacts);
 
   // const filteredContacts =
   //   contacts !== null &&
@@ -65,34 +51,39 @@ export const ContactList = () => {
   return (
     <ListContainer>
       {isLoading && <Loader />}
+      {!isLoading && contacts?.length > 1 && <Filter />}
+      {!isLoading && contacts?.length < 1 && <Empty />}
       {/* {error && <ErrorMessage message={error} />} */}
       <ul>
-        {Array.isArray(contacts) &&
-          filteredContacts?.map(contact => (
-            <Contact
-              id={contact.id}
-              key={contact.id}
-              name={contact.name}
-              number={contact.number}
-            />
-          ))}
+        {Array.isArray(contacts) && contacts.length > 0 && (
+          <>
+            <Title>Contacts</Title>
+
+            {filteredContacts?.map(contact => (
+              <Contact
+                id={contact.id}
+                key={contact.id}
+                name={contact.name}
+                number={contact.number}
+              />
+            ))}
+          </>
+        )}
       </ul>
     </ListContainer>
   );
 
-  /* <ListItem key={contact.id}>
-  <h4>{contact.name}</h4>
-  <NumberContainer>
-    <NumberFont>{contact.number}</NumberFont>
-    <DeleteBtn onClick={() => onDeleteContact(contact.id)}>
-      <FaTimes size="24" />
-      {/* <MdOutlineRemoveCircleOutline
-                    className="bold-icon"
-                    size="30"
-                  /> */
-  //     </DeleteBtn>
-  //   </NumberContainer>
-  // </ListItem>;
+  // {
+  //   Array.isArray(contacts) &&
+  //     filteredContacts?.map(contact => (
+  //       <Contact
+  //         id={contact.id}
+  //         key={contact.id}
+  //         name={contact.name}
+  //         number={contact.number}
+  //       />
+  //     ));
+  // }
 
   // return (
   //   <>

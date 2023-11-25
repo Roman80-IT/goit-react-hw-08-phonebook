@@ -26,6 +26,13 @@ export const NumberContainer = styled.div`
   gap: 12px;
 `;
 
+export const Title = styled.h2`
+  margin: 0 auto 22px;
+  font-size: 1.2em;
+
+  text-align: center;
+`;
+
 export const NumberFont = styled.p`
   font-size: 20px;
   font-weight: 500;
