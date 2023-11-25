@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import { refreshThunk } from 'redux/authReducer';
 import { Container } from './App.styled';
 import { Layout } from './Layout';
+import { NotFound } from './NotFound';
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestictedRoute';
 
@@ -22,22 +23,9 @@ export const App = () => {
 
   return (
     <Container>
-      {/* <Navigation /> */}
-      {/* <Section title="Phonebook"> */}
-      {/* <ContactForm /> */}
-      {/* </Section> */}
-
-      {/* <Section title="Contacts"> */}
-      {/* {contacts !== null && contacts.length !== 0 && <Filter />} */}
-      {/* <ContactList /> */}
-      {/* <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/contacts" element={<ContactsPage />} />
-      </Routes> */}
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route path="*" element={<NotFound />} />
           <Route index element={<HomePage />} />
           <Route
             path="contacts"
@@ -65,7 +53,6 @@ export const App = () => {
           />
         </Route>
       </Routes>
-      {/* </Section> */}
     </Container>
   );
 };
