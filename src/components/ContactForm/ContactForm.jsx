@@ -1,11 +1,19 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact, fetchContacts } from 'redux/contactsReducer';
 
-import { Input, Button } from './ContactForm.styled';
+import { addContact, fetchContacts } from 'redux/contactsReducer';
 import { selectContacts } from 'redux/contacts.selectors';
+
 import { useForm } from 'react-hook-form';
 import { Notify } from 'notiflix';
+
+import { Form, FormContainer } from './ContactForm.styled';
+import {
+  FormBtn,
+  FormInput,
+  FormLabel,
+  FormSpan,
+} from 'pages/LoginPage/LoginPage.styled';
 
 export const ContactForm = () => {
   const {
@@ -37,11 +45,11 @@ export const ContactForm = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>
-          <span>Name:</span>
-          <Input
+    <FormContainer>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <FormLabel>
+          <FormSpan>Name</FormSpan>
+          <FormInput
             {...register('name', { required: true })}
             type="text"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
@@ -49,10 +57,10 @@ export const ContactForm = () => {
             placeholder="Enter name"
           />
           {errors.name && <span>This field is required</span>}
-        </label>
-        <label>
-          <span>Number:</span>
-          <Input
+        </FormLabel>
+        <FormLabel>
+          <FormSpan>Number</FormSpan>
+          <FormInput
             {...register('number', { required: true })}
             type="tel"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
@@ -60,11 +68,11 @@ export const ContactForm = () => {
             placeholder="Enter number (123-45-67)"
           />
           {errors.number && <span>This field is required</span>}
-        </label>
+        </FormLabel>
 
-        <Button type="submit">Add contact</Button>
-      </form>
-    </div>
+        <FormBtn type="submit">Add contact</FormBtn>
+      </Form>
+    </FormContainer>
   );
 
   //   return (

@@ -24,7 +24,7 @@ export const FormLabel = styled.label`
   align-items: center;
 
   width: 380px;
-  gap: 10px;
+  gap: 16px;
 `;
 
 export const FormSpan = styled.span`
@@ -69,6 +69,6 @@ export const FormBtn = styled.button`
   &:focus {
     border: 1px solid black;
     background-color: black;
-    color: #fff;
+    color: white;
   }
 `;
