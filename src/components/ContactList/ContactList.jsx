@@ -5,20 +5,21 @@ import {
   selectContactsIsLoading,
   getFilter,
 } from 'redux/contacts.selectors';
-import { deleteContact, fetchContacts } from 'redux/contactsReducer';
+import { fetchContacts } from 'redux/contactsReducer';
 
 import { Loader } from 'components/Loader/Loader';
 // import { Contact } from 'components/Contact/Contact';
 // import ErrorMessage from 'components/ErrorMessage';
-import { FaTimes } from 'react-icons/fa';
+// import { FaTimes } from 'react-icons/fa';
 // import { MdOutlineRemoveCircleOutline } from 'react-icons/md';
 import {
-  DeleteBtn,
+  // DeleteBtn,
   ListContainer,
-  ListItem,
-  NumberContainer,
-  NumberFont,
+  // ListItem,
+  // NumberContainer,
+  // NumberFont,
 } from './ContactList.styled';
+import { Contact } from 'components/Contact/Contact';
 
 const getFilteredContacts = (contacts, filter) => {
   return contacts?.filter(contact =>
@@ -37,9 +38,9 @@ export const ContactList = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  const onDeleteContact = contactId => {
-    dispatch(deleteContact(contactId));
-  };
+  // const onDeleteContact = contactId => {
+  //   dispatch(deleteContact(contactId));
+  // };
 
   // export const ContactList = () => {
   //   const dispatch = useDispatch();
@@ -68,23 +69,30 @@ export const ContactList = () => {
       <ul>
         {Array.isArray(contacts) &&
           filteredContacts?.map(contact => (
-            <ListItem key={contact.id}>
-              <h4>{contact.name}</h4>
-              <NumberContainer>
-                <NumberFont>{contact.number}</NumberFont>
-                <DeleteBtn onClick={() => onDeleteContact(contact.id)}>
-                  <FaTimes size="24" />
-                  {/* <MdOutlineRemoveCircleOutline
-                    className="bold-icon"
-                    size="30"
-                  /> */}
-                </DeleteBtn>
-              </NumberContainer>
-            </ListItem>
+            <Contact
+              id={contact.id}
+              key={contact.id}
+              name={contact.name}
+              number={contact.number}
+            />
           ))}
       </ul>
     </ListContainer>
   );
+
+  /* <ListItem key={contact.id}>
+  <h4>{contact.name}</h4>
+  <NumberContainer>
+    <NumberFont>{contact.number}</NumberFont>
+    <DeleteBtn onClick={() => onDeleteContact(contact.id)}>
+      <FaTimes size="24" />
+      {/* <MdOutlineRemoveCircleOutline
+                    className="bold-icon"
+                    size="30"
+                  /> */
+  //     </DeleteBtn>
+  //   </NumberContainer>
+  // </ListItem>;
 
   // return (
   //   <>
