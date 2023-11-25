@@ -1,6 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from 'redux/filterReducer';
 import { getFilter } from 'redux/contacts.selectors';
+
+import { FormInput } from 'pages/LoginPage/LoginPage.styled';
+import { Form } from 'components/ContactForm/ContactForm.styled';
+import { Title } from 'pages/ContactsPage/ContactsPage.styled';
 // import { selectContactsFilterTerm } from 'redux/selectors';
 
 export const Filter = () => {
@@ -12,9 +16,9 @@ export const Filter = () => {
   };
 
   return (
-    <div>
-      <p>Find contact by name:</p>
-      <input
+    <Form>
+      <Title>Find contact by name:</Title>
+      <FormInput
         type="text"
         name="filter"
         id="filter"
@@ -22,6 +26,6 @@ export const Filter = () => {
         placeholder="Filter contacts"
         onChange={handleFilterTerm}
       />
-    </div>
+    </Form>
   );
 };
