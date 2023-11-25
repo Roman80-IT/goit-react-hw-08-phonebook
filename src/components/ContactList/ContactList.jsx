@@ -11,6 +11,14 @@ import { Loader } from 'components/Loader/Loader';
 // import { Contact } from 'components/Contact/Contact';
 // import ErrorMessage from 'components/ErrorMessage';
 import { FaTimes } from 'react-icons/fa';
+// import { MdOutlineRemoveCircleOutline } from 'react-icons/md';
+import {
+  DeleteBtn,
+  ListContainer,
+  ListItem,
+  NumberContainer,
+  NumberFont,
+} from './ContactList.styled';
 
 const getFilteredContacts = (contacts, filter) => {
   return contacts?.filter(contact =>
@@ -54,24 +62,28 @@ export const ContactList = () => {
   //   );
 
   return (
-    <div>
+    <ListContainer>
       {isLoading && <Loader />}
       {/* {error && <ErrorMessage message={error} />} */}
       <ul>
         {Array.isArray(contacts) &&
           filteredContacts?.map(contact => (
-            <li key={contact.id}>
+            <ListItem key={contact.id}>
               <h4>{contact.name}</h4>
-              <div>
-                <p>{contact.number}</p>
-                <button onClick={() => onDeleteContact(contact.id)}>
-                  <FaTimes />
-                </button>
-              </div>
-            </li>
+              <NumberContainer>
+                <NumberFont>{contact.number}</NumberFont>
+                <DeleteBtn onClick={() => onDeleteContact(contact.id)}>
+                  <FaTimes size="24" />
+                  {/* <MdOutlineRemoveCircleOutline
+                    className="bold-icon"
+                    size="30"
+                  /> */}
+                </DeleteBtn>
+              </NumberContainer>
+            </ListItem>
           ))}
       </ul>
-    </div>
+    </ListContainer>
   );
 
   // return (

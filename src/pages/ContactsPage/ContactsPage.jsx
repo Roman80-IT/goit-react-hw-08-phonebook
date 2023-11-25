@@ -5,6 +5,7 @@ import { fetchContacts } from 'redux/contactsReducer';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
+import { BlockContainer, Container, Title } from './ContactsPage.styled';
 
 export const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -14,18 +15,21 @@ export const ContactsPage = () => {
   }, [dispatch]);
 
   return (
-    <>
-      <div>
-        <h2>Add new contact</h2>
+    <Container>
+      <BlockContainer>
+        <Title>Add contact</Title>
         <ContactForm />
-      </div>
+      </BlockContainer>
 
-      <div>
-        <h2>Contacts list</h2>
+      <BlockContainer>
         <Filter />
+      </BlockContainer>
+
+      <BlockContainer>
+        <Title>Contacts</Title>
         <ContactList />
-      </div>
-    </>
+      </BlockContainer>
+    </Container>
   );
 };
 

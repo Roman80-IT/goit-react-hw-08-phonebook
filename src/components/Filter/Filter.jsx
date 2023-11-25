@@ -13,12 +13,13 @@ export const Filter = () => {
 
   return (
     <div>
-      <p>Find by name:</p>
+      <p>Find contact by name:</p>
       <input
         type="text"
         name="filter"
         id="filter"
         value={filterTerm}
+        placeholder="Filter contacts"
         onChange={handleFilterTerm}
       />
     </div>
