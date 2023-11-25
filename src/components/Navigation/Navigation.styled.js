@@ -13,14 +13,14 @@ export const Navi = styled.nav`
   padding: 14px 24px;
 `;
 
-export const NavBox = styled.div`
+export const NavBox = styled.ul`
   display: flex;
   align-items: center;
   gap: 20px;
   text-decoration: none;
 `;
 
-export const UserNavBox = styled.div`
+export const UserNavBox = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,18 +55,18 @@ export const StyledNavLink = styled(NavLink)`
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   }
 
-  :hover {
+  &:hover {
     // color: white;
     background-color: royalblue;
 
     // border: 1px solid white;
     // border-radius: 10px;
 
-    transform: scale(1.03);
+    transform: scale(1.05);
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
   }
 
-  :focus {
+  &:focus {
     // color: white;
     background-color: royalblue;
 
@@ -74,7 +74,7 @@ export const StyledNavLink = styled(NavLink)`
     // border: 1px solid white;
     // border-radius: 10px;
 
-    transform: scale(1.03);
+    transform: scale(1.05);
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   }
 `;
